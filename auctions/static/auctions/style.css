@@ -1,0 +1,50 @@
+div.parent{
+    display: flex;
+    border: 2px solid rgb(223, 218, 218);
+    margin: 30px;
+    padding: 30px;
+}
+
+div.parent:hover {
+    box-shadow: 5px 0px 25px grey;
+}
+.sec-child {
+    color: black;
+    margin-left: 100px;
+    font-family: monospace;
+}
+
+
+p {
+    font-size: larger;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+a {
+    color: rgb(0, 0, 0);
+}
+
+a:hover {
+    text-decoration: none;
+}
+a:active {
+    color: rgb(128, 128, 128);
+}
+
+a.categories {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 50px;
+}
+
+@media screen and (max-width: 600px) {
+    div.parent{
+        display: block;
+        border: 2px solid rgb(223, 218, 218);
+        width: 410px;
+        align-items: center;
+        padding: 0px;
+        text-align: center;
+    }
+    .sec-child {
+        margin-left: 0px;
+    }
+}

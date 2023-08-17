@@ -1,0 +1,38 @@
+{% extends "auctions/layout.html" %}
+{%  load static %}
+
+{% block body %}
+    {%if index == "list" %}
+        {%if no != 0 %}
+            <h3>Active Listings in Watchlist <span class="btn btn-secondary">{{no}}</span> </h3>
+        {%else%}
+            <h3>Active Listings in Watchlist</h3>
+        {% endif %}
+    {%elif index == "categories" %}
+        <h3>Active listings in Category : {{categories}}</h3>
+    {%elif index == "index" %}
+        <h3>Active listings</h3>
+    {%elif index == "inactive" %}
+    <h3>Closed Auction(s)<span class="btn btn-secondary">{{count}}</span> </h3>
+    {% endif %}
+
+    <div>
+        {% for listing in active_listings %}
+            <div class="parent">
+                <div class="child">
+                    <a href="{% url 'listing' listing.id %}"><img src="{{ listing.image_url }}" alt="{{ listing.title }}" class="img-fluid" style="max-width: 800px; height: 409px; margin: 0px; width: 409px;"></a>
+                </div>
+                <div class="sec-child">
+                    <a href="{% url 'listing' listing.id %}">
+                        <p> {{listing.title}}<br> Price: ${{listing.current_price.bid}}0</p>
+
+                        <span> {{listing.description}} </span>
+                    </a>
+                </div>
+            </div>
+        {% empty %}
+            <li class="category">No active listings in this category...</li>
+        {% endfor %}
+    </div>
+{% endblock %}
+
